@@ -1,0 +1,171 @@
+
+<% include ../../partials/restrict-header %>
+<div class=" adm container mt-4">
+
+    
+        <hr />
+    <h3 class="text-center"> Caixas da loja <%= store.name %></h3>
+    <hr />
+    <div class="form-group mx-auto col-md-10"> 
+           
+    
+    <a href='javascript:history.back()'><button class="btn btn-primary">Voltar</button></a>
+    <% Values.forEach(info => { %>
+        <div class="card my-3">
+            <div class="card-body">
+                    
+                    <table class=" col-md-10 mx-auto my-3 table table-sm table-bordered table-success table-hover ">
+                            <tbody>
+                                <tr class="row table-primary px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Data:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= moment(info.date).format("DD [de] MMMM [de] YYYY") %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Loja:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= store.name %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Funcionária:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.name %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Cópias Próprias:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                      R$ <%= info.copyP %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Cópias Locadas:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                      R$ <%= info.copyL %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Impressões Próprias:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                       R$ <%= info.printP %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Impressões Locadas:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                       R$ <%= info.printL %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Laser Color:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                      R$ <%= info.laserC %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Jato Color:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                       R$ <%= info.jetC %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Plotter:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                       R$ <%= info.plotter %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Produtos:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        R$ <%= info.products %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Internet:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        R$ <%= info.internet %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Observações:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.obs %>
+                                    </td>  
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+                        <div class="modal fade" id="testeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content modalBox ">
+                                <div class="modal-header ">
+                                    <h6 class="text-center mx-auto">Essa ação não poderá ser desfeita</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-body">
+                                    <h5 class="modal-title mx-auto text-center" id="exampleModalLabel"> Quer mesmo excluir o Caixa ?</h5>
+                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" onclick="$('#confirmBtn').trigger('click')" class="btn btn-primary btn-sm">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                         <div class="row"> 
+                    <form action="/restrict/caixas/excluir/<%=info._id%>">
+                        <a href='/restrict/caixas/excluir/<%=info._id%>'></a>
+                        <input type="hidden" name="id" value="" />
+                        <button id="confirmBtn"> </button>
+                    </form>
+                </div>
+        
+
+           
+                <div class="row"> 
+                        <a href= "edit/<%= info._id %>"><button class="btn disabled btn-sm mx-2 btn-warning"> N usar</button></a>
+                         <button type="button" data-toggle='modal' data-target='#testeModal' class="btn btnComanda btn-secondary btn-sm"> Excluir</button>
+                   
+                </div>
+                
+            </div>
+            
+        </div>
+    <% }) %>
+
+</div>
+
+<% include ../../partials/footer %>
+

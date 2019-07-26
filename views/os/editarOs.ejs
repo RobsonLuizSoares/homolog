@@ -1,0 +1,147 @@
+<% include ../partials/header %>
+
+
+<div class='container text-center my-5'>
+    <h1> Editar Comandas </h1>
+</div>
+<div class='container mb-5'>
+    <form method='post' ">
+            <div class="card mx-auto" style="max-width: 55rem;">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8 my-auto text-center ">
+                            <span class="font-weight-bold" value="<%= order.client %>" style="font-size: 1.4em; " >Comanda n.: <%= order.number %></span> 
+                        </div>
+                        <div class="form-group my-auto col-md-4">
+                            <select  class="form-control" id='status' name='status'>
+                            <% labels.forEach( label => { %>
+                                <option value="<%= label.id%>"  <% if(label.id == order.status) { %> selected ='selected' <% } %> > <%= label.name %> </option>
+                            <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class='card-body'>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label for="client">Cliente</label>
+                            <input value="<%= order.client %>" type='text' id='client'  class='form-control' name='client'>
+                        </div>
+                        <div class="col-md-4">
+                        <label for="number">Telefone:</label>
+                        <input value="<%= order.phone %>" class='form-control' type='text' name='phone'>
+                        </div>
+                    </div> 
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="number">Cópias:</label>
+                            <select  class="form-control" id='copy' name='copy'>
+                            <% copies.map( copy => { %>
+                                <option value="<%= copy.id%>" <% if(copy.id == order.copy) { %> selected ='selected' <% } %> > <%= copy.name %> </option>
+                            <% }) %>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="number">Quant.:</label>
+                            <input value="<%= order.copyQ %>" class='form-control' type='text' name='copyQ'>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="number">Folhas:</label>
+                            <select  class="form-control" id='copy' name='sheets'>
+                            <% sheets.map( sheet => { %>
+                                <option value="<%= sheet.id%>" <% if(sheet.id == order.sheets) { %> selected ='selected' <% } %> > <%= sheet.name %> </option>
+                            <% }) %>
+                            </select>    
+                        </div>
+                        <div class="col-md-3">
+                            <label for="number">Tamanho:</label>
+                            <select  class="form-control" id='size' name='size'>
+                            <% sizes.map( size => { %>
+                                <option value="<%= size.id%>" <% if(size.id == order.size) { %> selected ='selected' <% } %> > <%= size.name %> </option>
+                            <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label for="number">Outros Serviços:</label>
+                            <select  class="form-control" id='otherServices' name='otherServices'>
+                            <% services.map( service => { %>
+                                <option value="<%= service.id%>" <% if(service.id == order.otherServices) { %> selected ='selected' <% } %> > <%= service.name %> </option>
+                            <% }) %>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="number">Cor:</label>
+                            <select  class="form-control" id='color' name='color'>
+                            <% colors.map( color => { %>
+                                <option value="<%= color.id%>" <% if(color.id == order.color) { %> selected ='selected' <% } %> > <%= color.name %> </option>
+                            <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                    <hr />    
+                    <div class="row" >
+                        <h6 class="mx-auto">Descrição do Serviço:</h6>        
+                    </div>           
+                    <div class="row my-2 form-group">
+                        <textarea class="form-control" value='<%= order.comments %>' name="comments" rows="2" >
+                                <%= order.comments %>
+                        </textarea>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-4 text-center my-auto">
+                            <label for='register'>Registrada em: </label>
+                            <h6 class="font-weight-bold"><%= moment(order.register).format("DD [/] MM [/] YYYY") %></h6>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="number">Entregue em:</label>
+                            <input value="<%= order.delivery %>" class='form-control' type='date' name='delivery'>
+                        </div> 
+                        <div class="col-md-4 ">
+                            <label for="number">Guichê</label>
+                            <input value="<%= order.box %>" class='form-control' type='text' name='box'>
+                        </div> 
+                    </div>
+                    <hr />
+                    <div class="row alert alert-danger">
+                        <div class="col-md-4">
+                            <label for="number">Valor Total:</label>
+                            <input value="<%= order.valueJobTotal %>" class='form-control' type='text' id="valueJobTotal" name='valueJobTotal'>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="number">Entrada:</label>
+                            <input value="<%= order.valueJobInit %>" class='form-control' type='text' id="valueJobInit" name='valueJobInit'>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="number">Pagamento:</label>
+                            <select  class="form-control" id='isSold' name='isSold'>
+                            <% solds.map( sold => { %>
+                                <option value="<%= sold.id%>" <% if(sold.id == order.isSold) { %> selected ='selected' <% } %> > <%= sold.name %> </option>
+                            <% }) %>
+                            </select>
+                        </div>
+                    </div><hr />
+                <button class='btn btn-primary' style='width: 8rem;'> Salvar </button>
+                <a href='/os/list'><button type='button' class='btn btn-success ml-2' style='width: 8rem;'> Voltar </button></a>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+<script type="text/javascript">
+    $("#valueJobTotal , #valueJobInit").mask("099.00");
+  $(document).ready(function(){
+      
+          $("#valueJobTotal, #valueJobInit").maskMoney({ decimal: '.', thousands: '', precision: 2 });
+  })
+  </script>
+  <script>
+  if (window.jQuery == undefined)
+alert("Sem jQuery!");
+  </script>
+
+<% include ../partials/footer %>

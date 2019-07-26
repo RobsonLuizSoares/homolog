@@ -1,0 +1,24 @@
+<% include ../../partials/restrict-header %>
+<div class="container user py-4" >
+<div class="mt-5 ">
+    <h1 class="mt-4 text-center text-body"> Sistema de Gerenciamento Net Link </h1>
+    <h4 class="my-4 text-center text-body">Administração Net Link</h4>
+</div> 
+        <hr />
+    <div class="my-3 ">
+        <h3 class='text-center my-4'>Cadastrar Loja </h3>
+    </div>
+    <div class="card ">
+        <div class="my-4 card-body pb-5">
+            <form method="POST" >
+                <div class="form-group">
+                    <label for="name">LOJA</label>
+                    <input type="text" class="form-control my-2" id="name" name='name' placeholder="Digite o Nome da Loja">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Cadastrar Loja</button>
+                <a href="/restrict/gerenciamento"> <button type="button" class="btn btn-secondary">Voltar</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ../../partials/footer %>

@@ -1,0 +1,147 @@
+<% include ../partials/header %>
+
+<div class='container text-center namePage'>
+    <h1> Consultar Comandas </h1>
+</div>
+<div class='container text-center my-4'>
+    <a href='/os/nova'><button type='button' class='btn btn-outline-primary btn-sm mr-3' style='width: 12rem;'> Cadastrar Nova Comanda</button></a>
+    <a href='javascript:history.back()'><button type='button' class='btn btn-outline-primary btn-sm ' style='width: 12rem;'> Voltar</button></a>
+</div>
+<% if(Order.length == 0) { %>
+    <% include ../partials/errorMsg %>
+<% } %>
+
+<% Order.forEach( os => { %> 
+    <div class="container comanda ">
+        <div class="card mx-auto">
+            <div class="card-header cardHeader formNova">
+                <div>
+                    <h5 class="text-center">Comanda de Serviços Net Link</h5> 
+                </div>
+            </div>
+            <div class='card-body cardBody formNova '>
+            <div class='card cardContent'>
+                <div class="row mt-3 ">
+                    <div class="col-md-4 field">
+                        <span class="font-weight-normal ">Cliente:&nbsp; <%= os.client %></span>
+                    </div>
+                    <div class="col-md-2 field">
+                        <span class="font-weight-normal ">Loja:&nbsp; <%= store.name %></span>
+                    </div>
+                    <div class="col-md-3 field">
+                        <span class="font-weight-normal ">Telefone:&nbsp; <%= os.phone %></span>
+                    </div>
+                    <div class="col-md-2 field">
+                        <span class="font-weight-bold" style="font-size: 1.1em;" >Comanda n.:&nbsp; <%= os.number %></span> 
+                    </div>
+                 </div> 
+                 <br />
+                <div class="row">
+                    <div class="col-md-3 field">
+                        <span class="font-weight-normal">Cópias:&nbsp; <%= os.copy %></span>
+                    </div>
+                    <div class="col-md-2 field">
+                        <span class="font-weight-normal ">Quantidade:&nbsp; <%= os.copyQ %></span>
+                    </div>
+                    <div class="col-md-3 field">
+                        <span class="font-weight-normal" >Folhas:&nbsp; <%= os.sheets %></span> 
+                    </div>
+                    <div class="col-md-2 field">
+                        <span class="font-weight-normal">Tamanho:&nbsp; <%= os.size %></span>
+                    </div>
+                </div>
+                <hr />
+                <% if(os.otherServices === '') { %> 
+                  
+                  
+                <div class="row">
+                    <div class="col-md-7 field">
+                        <span class="font-weight-normal">Outros Serviços:&nbsp; <%= os.otherServices %></span>
+                    </div>
+                    <div class="col-md-4 field">
+                        <span class="font-weight-normal" >Cor:&nbsp; <%= os.color %></span> 
+                    </div>
+                </div>
+                <hr /> 
+                <% } %>   
+                 <div class="row" >
+                    <h6 class="mx-auto">Descrição do Serviço:</h6>        
+                </div>           
+                <div class="row">
+                    <div class= ' fieldComments'>
+                        <span class="font-weight-normal">&nbsp; <%= os.comments %></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row ">
+                    <div class="col-md-3 fieldDate">
+                        <span class="font-weight-normal " >Registrada em: <%= moment(os.register).format("DD [/] MM [/] YYYY") %>&nbsp; </span> 
+                    </div>
+                    <% if(os.delivery) { %> 
+                    <div class="col-md-3 fieldDate">
+                        <span class="font-weight-normal " >Prometido para:&nbsp; <%= moment(os.delivery).add(1,'days').format("DD [/] MM [/] YYYY") %></span>
+                    </div> 
+                    <% } %>
+                    
+                    <div class="col-md-2 fieldBox">
+                        <span class="font-weight-normal">Guichê:&nbsp; <%= os.box %></span>
+                    </div>
+                    <div class="col-md-3 fieldDate">
+                        <span class="font-weight-normal">Funcionária:&nbsp; <%= os.name %></span>
+                    </div> 
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-2 fieldCash">
+                        <span class="font-weight-normal">Total:&nbsp; R$ <%= os.valueJobTotal %></span>
+                    </div>
+                    <div class="col-md-3 fieldCash">
+                        <span class="font-weight-normal">Entrada:&nbsp; R$ <%= os.valueJobInit %></span>
+                    </div>
+                    <div class="col-md-3 fieldCash">
+                        <span class="font-weight-normal">Pagamento:&nbsp; <%= os.isSold %></span>
+                    </div>
+                    <div class="col-md-3 fieldStatus">
+                        <span class="font-weight-normal ">Status:&nbsp;&nbsp;<strong> <%= os.status %></strong></span>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="testeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modalBox ">
+                        <div class="modal-header ">
+                            <h6 class="text-center mx-auto">Essa ação não poderá ser desfeita</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-body">
+                            <h5 class="modal-title mx-auto text-center" id="exampleModalLabel"> Quer mesmo excluir a Comanda ?</h5>
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                            <button type="button" onclick="$('#confirmBtn').trigger('click')" class="btn btn-primary btn-sm">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row"> 
+                    <form action="/os/excluir/<%=os._id%>">
+                        <a href='/os/excluir/<%=os._id%>'></a>
+                        <input type="hidden" name="number" value="" />
+                        <button id="confirmBtn"> </button>
+                    </form>
+                </div>
+
+                <div class= 'btns mx-auto'> 
+                    <a href='/os/editar/<%= os._id %>'><button type="button" class="btn btnComanda btn-primary btn-sm mr-2">Editar</button></a>
+                    <button type="button" data-toggle='modal' data-target='#testeModal' class="btn btnComanda btn-secondary btn-sm"> Excluir</button>
+                </div>
+            </div>
+            </div>            
+        </div>
+    </div>
+<% }) %>
+
+<% include ../partials/footer %>

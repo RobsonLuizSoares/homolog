@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+<body class='adminBody'>
+    <div class='container alert mt-1'>
+        <div class="my-5">
+            <h1 class="mt-4 text-center text-body"> Administração de Comandas </h1>
+        </div> 
+        <h3 class="text-center"> Selecione sua loja</h3>
+        <hr />
+                                
+        <div class='row  comandasLoja'>
+            <div class='col-md-3 text-center my-5'>
+                <a href='/os/list/Avenida' class='text-decoration-none'><h4 class=' tagsUser'>Avenida</h4></a>
+            </div>
+            <div class='col-md-3 text-center my-5'>
+                <a href='/os/list/Unespar' class='text-decoration-none'><h4 class='tagsUser'>Unespar</h4></a>
+            </div>       
+            <div class='col-md-3 text-center my-5'>
+                <a href='/os/list/São%20Cristóvão' class='text-decoration-none'><h4 class='tagsUser'>São Cristóvão</h4></a>
+            </div>
+            <div class='col-md-3 text-center my-5'>
+                <a href='/os/list/Cruz%20Machado' class='text-decoration-none'><h4 class='tagsUser'>Cruz Machado</h4></a>
+            </div>
+        </div>
+                        <div class="modal fade" id="testeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-center" id="exampleModalLabel"> Excluir Cadastro </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-body alert alert-danger">
+                                        <h5 class="text-center">Quer mesmo excluir o cadastro? </h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" onclick="$('#confirmBtn').trigger('click')" class="btn btn-primary">Confirmar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    <hr />
+                                           
+        <div id='btnBack' class='row BtnComandasLoja'>
+            <div class='col-md-4 text-center mx-auto'>
+                <a class='text-decoration-none' href='/admin'><h4 class="tagsUp ">Voltar</h4></a>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+<% include ../partials/footer %>

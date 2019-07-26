@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white"> CADASTRO DE LOJA Fechamento de Caixa </h1>
+    </div>
+        <hr />
+    <div class="container my-3 ">
+        <h3>VIEWS CAIXA Lançar Caixa </h3>
+    </div>
+    <div class="card">
+        <div class="card-body pb-5">
+            <form method="POST" action="/caixas/nova">
+                <div class="form-group">
+                    <label for="name">LOJA</label>
+                    <input type="text" class="form-control" id="name" name='name' placeholder="digite o Nome da Loja">
+                </div>
+                <a href="/caixas/nova"> <button type="button" class="btn btn-primary">Lançar Caixa</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

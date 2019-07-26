@@ -1,0 +1,22 @@
+<% include ../../partials/restrict-header %>
+
+<div class='container'>
+    <div class="mt-5 ">
+        <h1 class="mt-4 text-center text-body"> Sistema de Gerenciamento Net Link </h1>
+        <h4 class="my-4 text-center text-body">Administração</h4>
+    </div>
+    
+      <h3 class="text-center my-5"> Lojas</h3>
+     
+      <div class="row mb-5">
+        <% stores.forEach(store => { %>   
+          <div class='col-md-3 text-center'>       
+              <h4 class='alert alert-primary'><%= store.name %> </h4>
+          </div>
+        <% }) %>  
+      </div>
+<a href='loja/nova'><button class="btn btn-primary">Criar Loja</button></a>
+<a href='/restrict/gerenciamento'><button class="btn btn-secondary">Voltar</button></a>
+</div>
+
+<% include ../../partials/footer %>

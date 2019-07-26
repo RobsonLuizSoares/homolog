@@ -1,0 +1,27 @@
+<% include ../partials/restrict-header %>
+
+<div class='container'>
+    <div class="mt-5 ">
+        <h1 class="mt-4 text-center text-body"> Sistema de Gerenciamento Net Link </h1>
+    </div>
+    <h4 class="my-4 text-center text-body">Administração Net Link</h4>
+    <hr />
+        <div class='row menuRestrict'>
+            <div class='col-md-6 text-center'>
+                <h4 class='tags'>Comandas Abertas / Em Execução:&nbsp; <%= quant %></h4>
+            </div>
+            <div class='col-md-6 text-center'>
+                <a class='text-decoration-none' href='/restrict/caixas'><h4 class='tags'>Caixas Enviados:&nbsp; <%= quantCaixas %> </h4></a>
+            </div>       
+        </div>
+        <hr />
+        <div class='row BtnComandasLoja'>
+        <div class='col-md-4 text-center mx-auto'>
+            <a class='text-decoration-none' href='/restrict/gerenciamento'><h4 class="tagsUp ">Voltar</h4></a>
+        </div>
+    
+    </div>
+    </div>
+
+
+<% include ../partials/footer %>

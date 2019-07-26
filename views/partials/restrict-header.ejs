@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" >   
+    <title>Gerenciamento Net Link</title>
+</head>
+
+<body>
+
+<nav class="navbar navega navbar-expand-lg " style=" background-color: #6F1E51; padding-left: 55px;">
+    <a class="navbar-brand brandNetAdmin" href="/restrict">Net Link</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-white mr-3" style="font-size: 0.8em">Menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link navItens" href='/admin'> Comandas </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link navItens" href="/os/list">Consultar Todas as Comandas</a>
+        </li>
+        <% if('user' in locals ){ %>
+          <% if(locals.user.roles.length > 1) { %> 
+            <li class="nav-item active">
+              <a class="nav-link navItens" href="/restrict/caixas">Caixas <span class="sr-only">(current)</span></a>
+            </li>
+          <% } %>
+        <% } %>
+      </ul>
+     </div>
+      <% if('user' in locals ){ %>
+        <h6 class='welcomeUser'> Olá, <%= locals.user.user %> ! </h6>
+        <div class='mr-2'><a href='/logout'><button class='btn btn-sm btn-outline-warning '>Sair</button></a></div>
+      <%}else{%>
+        <div class='mr-2'><a href='/login'><button class='text-white btn btn-warning mr-1'> Login </button></a></div>
+      <% } %>
+  </nav> 

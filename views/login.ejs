@@ -1,0 +1,23 @@
+    
+<% include partials/headerUser %>
+
+<body class='headerUserBody'>
+    <form  method="post" class="box">
+        <h1>Login</h1>
+        <input type="text" id='name' name="username" placeholder="Usuário" >
+        <input type="password" name="password" placeholder="Senha" >
+        <div class='row mx-auto'>
+        <button class="btnLogin mr-0" value='/' type="buttom">cancelar </button>
+        <button class="btnLogin" type="submit">Login </button>
+        </div>
+        
+    </form>
+</body>
+    
+<script>
+    window.onload = function() {
+        document.getElementById('name').focus()
+    }
+</script>
+
+<% include ./partials/footer %>

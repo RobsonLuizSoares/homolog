@@ -1,0 +1,612 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #f3f2f2;
+}
+.navega{
+    min-height:100px;
+    font-size: 1.2em;
+    color: #fff; 
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.3);
+    padding-left: 45px;
+    line-height: 60%;
+}
+.welcome {
+   
+    margin-top: 8%;
+    background-color:#a55eea;
+    color: #fff;
+    animation-name: home;
+    animation-duration: 2s;   
+}
+.menuRestrict {
+    margin-top: 15%;
+}
+.errMsg {
+    opacity: 0;
+    font-family: 'Roboto', serif;
+    padding: 25px;
+    font-size: 2em;
+    background-color:#a55eea;
+    animation-name: home;
+    animation-duration: 2s;
+    opacity: 1;
+    margin-top: 15%
+}
+.welcomeUser {
+    color: white;
+    font-style: italic;
+    font-weight: 500;
+    margin-right: 15px;
+    font-family: 'Roboto', serif;
+}
+.welc {
+    opacity: 0;
+    font-family: 'Crete Round', serif;
+    font-size: 2em;
+    animation-name: welc;
+    animation-duration: 2s;
+    opacity: 1;
+    margin-top: 4%;
+}
+@keyframes welc {
+    from {
+        opacity: 0;
+        color: rgb(255, 255, 255);
+     }
+     to { 
+       color: rgb(255, 255, 255);
+       opacity: 1;
+     }
+}
+@keyframes home {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.BtnComandasLoja {
+    margin-top: 5%;
+}
+.tags {
+    border: solid 1px #d3b2f7;
+    border-radius: 5px;
+    height: 2.2em;
+    line-height: 2.2em;
+    color: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+    /* background-color: #a55eea; */
+    background-color: #6F1E51;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+.tags:before {
+    content: '';
+    position: absolute;
+    font-weight: 700;
+    height: 2.2em;
+    left: 0px;
+    width: 0%;
+    background-color: rgba(223, 171, 243, 0.2);
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+.tags:hover:before {
+    width: 100%;
+}
+.tagsUser {
+    border: solid 1px #d3b2f7;
+    border-radius: 5px;
+    height: 2.2em;
+    line-height: 2.2em;
+    color: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #a55eea; 
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+.tagsUser:before {
+    content: '';
+    position: absolute;
+    font-weight: 700;
+    height: 2.2em;
+    left: 0px;
+    width: 0%;
+    background-color: rgba(223, 171, 243, 0.2);
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+.tagsUser:hover:before {
+    width: 100%;
+}
+.tagsUp {
+    border: solid 1px #a5b1c2;
+    border-radius: 5px;
+    line-height: 2.2em;
+    color: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #4b6584;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.tagsUp:hover {
+    font-weight: 600;
+}
+/* style=" background-color: ;  */
+.navega a{
+    margin-right: 3em;
+    color: #fff;
+    
+}
+.navega a:hover{
+    color: yellow; 
+    transition: 0.4s;
+}
+.navItens {
+    height: 2.2em;
+    line-height: 2em;
+    color: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #6F1E51;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+.navItens:hover {
+    color: #191919;
+}
+
+.brandNet{
+    font-size: 3em;
+    margin:0em 0.5em;
+    margin-right: 2em;
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: 700;
+    color: rgb(250, 2, 2);    
+}
+.brandNet:hover {
+    color: rgb(3, 0, 0);
+}
+.brandNetAdmin {
+    font-size: 2.1em;
+    margin:0.2em 2em;
+    margin-right: 2em;
+    font-weight: 700;
+    color: rgb(250, 2, 2); 
+}
+.brandNetUser {
+    font-size: 2.5em;
+    margin:0em 1em;
+    margin-right: 1.2em;  
+    font-weight: 700;
+    color: rgb(255, 255, 255); 
+}
+.brandNetUser:hover {
+    color: rgb(3, 0, 0);
+}
+.brandNetUserMessage {
+    font-family: 'Crete Round', serif;
+    font-size: 1.5em;
+    animation-name: conect;
+    animation-duration: 2s;
+    margin-left: 3em;
+}
+@keyframes conect {
+    0% {
+        font-size: 1.5em;
+        opacity: 0;
+      -webkit-transform: translateX(1500px);
+    }
+    30% {
+        font-size: 1.5em;
+        opacity: 0.6;
+        -webkit-transform: translateX(-50px);
+    }
+    50% {
+        font-size: 1.5em;
+        opacity: 1;
+        -webkit-transform: translateX(100px);
+    }
+    85% {
+        font-size: 1.5em;
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+    }
+    100% {
+        font-size: 1.5em;
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+    }
+  }
+.footer{
+    border-top: 0.5px solid #030303;
+    font-size: 0.4em;
+    text-align: center;
+    align-items: center;
+    padding-top: 0px;
+}
+.navItensUser {
+    margin-right: 1.2em;
+    font-size: 1em;
+   /*  margin:0.2em 1.5em ; */
+    font-weight: 800;
+    color: rgb(250, 2, 2);
+}
+.navItensUser:hover {
+    color: #191919;
+}
+.log {
+    width: 100%;
+   
+}
+.formNova{
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.3);
+}
+.modalBox{
+    width: 400px;
+    color: #fff;
+    margin-top: 20%;
+    padding: 10px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff4757;
+    border-radius: 5px;
+    text-align: center;
+
+    
+}
+
+/* LOGIN */
+
+body.headerUserBody #logi {
+   display: none; 
+}
+body.adminBody #btnBack{
+    display: none;
+}
+
+ .box{
+    width: 400px;
+    padding: 40px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, #6F1E51 200px, rgb(101, 4, 158) 350px);
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 2px 2px #6e5c804f; 
+    
+}
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    
+}
+.box input[type = 'text']  {
+    border: 0;
+    background: none;
+    display: block;
+    height: 40px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    width: 210px;
+    outline: none;
+    border-radius: 8px;
+    transition: 0.25s;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.box input[type = 'password'] {
+    border: 0;
+    background: none;
+    display: block;
+    height: 40px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    width: 210px;
+    outline: none;
+    border-radius: 8px;
+    transition: 0.25s;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.box input[type = 'text']:focus, .box input[type = 'password']:focus {
+width: 240px;
+border-color: #f73b23;
+}
+.btnLogin {
+    border: 0;
+    background: none;
+    display: block;
+    margin: auto; 
+    /* margin: 10px auto; */
+    text-align: center;
+    border: 1.5px solid #ffffff;
+    padding:  14px 80 px;
+    outline: none;
+    color: white;
+    width: 100px;
+    border-radius: 4px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.btnLogin:hover {
+    background: #f74813;
+    color:white;
+}
+#confirmBtn {
+display: none;
+}
+#createClientBtn {
+    display: none;
+}
+/* COMANDAS*/
+.comanda{
+    margin-bottom: 50px;
+}
+.cardHeader {
+    background-color: #d63031;
+}
+.cardHeader h5 {
+    color: rgb(255, 239, 15);
+    font-size: 1.7em;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+.cardBody {
+    background-color: #e8e8e8;
+}
+.cardContent {
+    background-color: #ffffff;
+}
+.payment {
+    background-color: #fcc8c89d;
+    font-weight: 500;
+    padding-left: 30%;
+}
+.namePage{
+    margin-top: 35px;
+    
+}
+.namePage h1{
+    
+    font-size: 2em;
+}
+.field{
+    background-color: #f7e9e99d;
+    border-radius: 3px;
+    border: 1px solid  #6b6b6b;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 20px;    
+}
+.fieldNew{
+    background-color: #f7e9e99d;
+    border-radius: 3px;
+    border: 1px solid  #6b6b6b;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 10px;    
+}
+.fieldDate {
+    background-color: #f7e9e99d;
+    border-radius: 3px;
+    border: 1px solid  #6b6b6b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.fieldCash {
+    background-color: #f7e9e99d;
+    border-radius: 3px;
+    border: 1px solid  #6b6b6b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.fieldBox {
+    background-color: #fa9c9cda;
+    border-radius: 3px;
+    border: 1px solid  #6b6b6b;
+    padding-top: 8px;
+    padding-left: 35px;
+    padding-bottom: 4px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.fieldStatus {
+    background-color: #ff7676da;
+    border: 1px solid  #6b6b6b;
+    border-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.fieldComments {
+    width: 100%;
+    border: 1px solid  #6b6b6b;
+    background-color: #f7e9e99d;
+    border-radius: 3px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 22px;
+    padding-left: 15px;     
+}
+.btnComanda{
+    margin: 20px 0px;
+    width: 120px;
+}
+.userCreateComanda{
+    flex-direction: row;
+    float: right;
+    font-weight: 400;
+    font-style: italic;
+    margin-right: 25px;
+}
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) { 
+    
+    .navega{
+        min-height:50px;
+        font-size: 0.8em;
+        font-family: 'Roboto', serif;
+        
+    }
+    .namePage{
+        margin-top: 20px;
+        font-size: 2em;
+    }
+    .namePage h1{
+        
+        font-size: 1em;
+    }
+    .cardContent{
+       
+        padding: 5px 25px;
+        margin-top: 5px;
+        width: 100%;
+        background-color: rgb(252, 221, 221);
+    }
+    .cardHeader h5 {
+        color: rgb(255, 239, 15);
+        font-size: 1.4em;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    }
+    .field{
+        border: 0.5px solid  #6b6b6b;
+        background-color: #ffffff;
+        margin-left:5;
+        margin-top: 5px;
+        margin-right: 5px;
+        font-size: 0.9em;
+    }
+    .fieldNew{
+        border: 0.5px solid  #6b6b6b;
+        background-color: #ffffff;
+        margin-left:0;
+        margin-top: 5px;
+        margin-right: 5px;
+        font-size: 0.9em;
+    }
+    .fieldBox{
+        background-color: #ffffff;
+        margin-left:18px;
+        margin-top: 5px;
+        font-size: 0.9em;
+    }
+    .fieldStatus{
+        margin-left: 32px;
+        border: 1px solid  #6b6b6b;
+        background-color: #e7e7e7be;
+        border-radius: 3px;
+        padding-top: 10px;
+        padding-left: 20%;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+        
+    }
+    .fieldDate{
+        border: 1px solid  #6b6b6b;
+        background-color: #ffffff;
+        border-radius: 3px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        letter-spacing: 0.6px;
+        font-size: 0.9em;
+    }
+    .fieldCash {
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: 1px solid  #6b6b6b;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        font-size: 0.9em;
+    }
+    .fieldComments{
+        width: 100%;
+        border: 1px solid  #6b6b6b;
+        background-color: #e7e7e7be;
+        border-radius: 3px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 18px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        padding-left: 10px;  
+    }
+    .btns{
+        width: 100%;
+        border: 1px solid  #6b6b6b;
+        
+        border-radius: 3px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        margin-bottom: 15px;
+         padding-left: 15%;
+    }
+    .btnComanda{
+        width: 100px;  
+    }
+    .btnNova{
+        padding-left: 15%;
+    }
+    
+    
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+    .h1{
+        color: rgb(214, 150, 13);
+    };
+    
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+    .h1{
+        color: rgb(0, 0, 0);
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1600px) { 
+    .namePage{
+        margin-top: 20px;
+        font-size: 2em;
+    }
+    .namePage h1{
+        
+        font-size: 1.5em;
+    }
+    .comandasLoja {
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
+    .BtnComandasLoja {
+        margin-top: 10%;
+    }
+ }

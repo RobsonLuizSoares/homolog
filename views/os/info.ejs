@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<h1> Editar Comandas VIEW info </h1>
+<a href='/os/list'><button type='button' class='btn btn-success'> Voltar </button></a>
+<div class='container'>
+    <form method='post'>
+        <div class='form-group' >
+            <label for="client">Cliente: <%= order.client %></label>
+            <label for="number">Número: <%= order.number %></label>
+            <label for="status">Status: <%= order.status %></label>
+            <textarea class='form-control' name='comentario' rows="2" > </textarea>            
+            <input type="submit" name="" value="Adicionar Comentário">
+            <% order.comments.forEach( c => { %>
+                <div> <%= c %> </div>
+            <% }) %>
+        </div> 
+    </form>
+</div>
+
+<% include ../partials/footer %></div>

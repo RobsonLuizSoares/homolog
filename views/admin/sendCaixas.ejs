@@ -1,0 +1,112 @@
+
+<% include ../partials/header %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white">  Fechamento de Caixa </h1>
+    </div>
+        <hr />
+        <div class="container my-3 ">
+                <h3>Lançar Caixa </h3>
+        </div>
+            <div class="card">
+                <div class="card-body pb-5">
+                    <form method="POST"  action="/admin/caixas/nova">   
+                        <div class= 'row '>
+                            <div class="form-group col-md-8"> 
+                                <label for="name">Nome:</label>
+                                                           
+                                <select class="form-control" name="name" id='name'>
+                                        <% employees.forEach(employee => { %>
+                                        <option  value="<%= employee.name %>"> <%= employee.name %> </option>
+                                        <% }) %>
+                                </select>  
+                            </div>
+
+                            <div class="form-group col-md-4"> 
+                                <strong><label>Selecione sua loja:</label></strong>
+                                <select class="form-control" name="store">
+                                        <% stores.forEach(store => { %>
+                                        <option  value="<%= store._id %>"> <%= store.name %> </option>
+                                        <% }) %>
+                                </select>  
+                            </div>
+                        </div>
+        <h5 class="text-center alert alert-danger">XEROX</h5>
+        <div class="row"> 
+            
+            <div class="form-group col-md-6">
+                <label for="copias">Máquinas Próprias:</label>
+                <input type="text" class="form-control" id="copyP" name='copyP'  placeholder="digite o valor das cópias">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="impressoes">Máquinas Locadas:</label>
+                <input type="text" class="form-control" id="copyL" name='copyL' placeholder="digite o valor das Impressões" >
+            </div>
+        </div>
+        <h5 class="text-center alert alert-danger">IMPRESSÃO</h5>
+        <div class="row"> 
+            
+            <div class="form-group col-md-6">
+                <label for="copias">Máquinas Próprias:</label>
+                <input type="text" class="form-control" id="printP" name='printP' placeholder="digite o valor das cópias">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="impressoes">Máquinas Locadas:</label>
+                <input type="text" class="form-control" id="printL" name='printL' placeholder="digite o valor das Impressões" >
+            </div>
+        </div>
+        <h5 class="text-center alert alert-danger">COLOR</h5>
+        <div class="row"> 
+            <div class="form-group col-md-6">
+                <label for="copias">Laser Color:</label>
+                <input type="text" class="form-control" id="laserC" name='laserC' placeholder="digite o valor das cópias">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="impressoes">Jato Color:</label>
+                <input type="text" class="form-control" id="jetC" name='jetC' placeholder="digite o valor das Impressões" >
+            </div>
+        </div>
+        <h5 class="text-center alert alert-danger">OUTROS</h5>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="copias">Plotter:</label>
+                <input type="text" class="form-control" id="plotter" name='plotter' placeholder="digite o valor das cópias">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="impressoes">Produtos:</label>
+                <input type="text" class="form-control" id="products" name='products' placeholder="digite o valor das Impressões" >
+            </div>
+            <div class="form-group col-md-4">
+                    <label for="impressoes">Internet:</label>
+                    <input type="text" class="form-control" id="internet" name='internet'  placeholder="digite o valor das Impressões" >
+            </div>
+        </div>
+        <h5 class="text-center alert alert-danger">OBSERVAÇÕES</h5>
+        <div class="row">
+            <div class="form-group mx-auto col-md-12">
+                <label for="impressoes">Observações:</label>
+                    <textarea class="form-control" id="obs" name='obs' rows="3" placeholder="Observações">
+                    </textarea>
+            </div>
+        </div>
+        <div class="form-row my-3 mr-5" style="float:right">
+            <button type="submit" class="btn btn-primary">Fechar Caixa</button>
+        </div>
+        
+    </form>
+    
+    </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+          $("#copyP, #copyL, #copyP, #copyL, #printP, #printL, #laserC, #jetC, #plotter, #products, #internet").mask("099.00", {reverse: true});
+        $(document).ready(function(){
+            
+                $("#copyP, #copyL, #copyP, #copyL, #printP, #printL, #laserC, #jetC, #plotter, #products, #internet").maskMoney({ decimal: '.', thousands: '', precision: 2 });
+        })
+        </script>
+
+<% include ../partials/footer %>
+

@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+
+<div class='container text-center mt-5'>
+    <h1> Consulta Comandas por Status</h1>
+</div>
+<div class='container my-2' >
+    <a href='/os/list'><button type='button' class='btn btn-primary' style='width: 7rem;'> Voltar </button></a>    
+</div>
+
+<% if(order.length == 0) { %>
+    <% include ../partials/errorMsg %>
+<% } %>
+
+
+<% order.forEach( os => { %> 
+<div class='container jumbotron '>
+  <div class="card mx-auto" style="width: 22rem;">
+        <div class="card-header">
+            <h4>Comanda n.: <%= os.number %></h4>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> Cliente: <%= os.client %></li> 
+            <li class="list-group-item">Status: <%= os.status %></li>
+        </ul>
+    </div>      
+        <div class="card  mx-auto" style="width: 22rem;">
+            <div class="card-header">
+                <h5>Comentários:</h5>
+            </div>
+        <% os.comments.map( c => { %>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= c %> </li>
+            </ul>
+        <% }) %> 
+        <div class='card '>       
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a href='/os/editar/<%= os._id %>'><button type="button" class="btn btn-primary">Editar</button></a>
+                    <a href='/os/excluir/<%= os._id %>'><button type="button" class="btn btn-secondary"> Excluir</button></a>
+                    <a href='/os/info/<%= os._id %>'><button type="button" class="btn btn-success">Novo Comentário</button>  </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<% }) %>
+   
+
+
+
+<% include ../partials/footer %>

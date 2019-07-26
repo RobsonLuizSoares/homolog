@@ -1,0 +1,25 @@
+<% if('user' in locals ){ %>
+    <% if(locals.user.roles.length > 1) { %> 
+      <li class="nav-item active">
+        <a class="nav-link" href="/restrict">Caixas <span class="sr-only">(current)</span></a>
+      </li>
+    <% } %>
+  <% } %>
+
+
+  <% os.comments.map( c => { %>
+    <ul class="list-group list-group-flush   ">
+        <li class="list-group-item "><%= c %> </li>
+    </ul>
+    <% }) %>
+
+
+    <!--
+      Link Para Novo Comentário na página Comandas os/list
+      <a href='/os/info/<%= os._id %>'><button type="button" class="btn btn-success btn-sm mx-2">Novo Comentário</button>  </a>  -->
+
+      const caixas = async ({Values, Store, User},req, res) => {
+        const adminCaixas = await Store.find().then((store) => {
+          res.render('restrict/receiveCaixas', { store })
+        })
+    }

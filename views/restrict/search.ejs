@@ -1,0 +1,25 @@
+<div>
+            <h2> Pesquisa:</h2>
+            <div class='form-group'>
+                <form  action='/search' method='get'>
+                    <input class='form-control' type='text' name='query' />
+                    <button class="btn btn-primary my-2" type='submit'>Pesquisar</button>
+                </form>
+            </div>
+        </div>
+        <%
+            if(results){
+                if(list.length > 0){
+        %>
+        <b>Resultados da pesquisa por <%= search %>:</b>
+        <ul>
+            <% list.forEach(function(item){ %>
+                <li><%= item.nome %> (<%= item.profissao%>)</li>
+            <% }); %>
+        </ul>
+        <% } else{ %>
+            <b>Nenhum resultado encontrado para <%= search %>!</b>
+        <% 
+            }
+        }
+        %>

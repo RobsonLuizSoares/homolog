@@ -1,0 +1,33 @@
+
+<% include ../partials/header %>
+<div class='container alert mt-1'>
+    <div class="my-5">
+        <h1 class="mt-4 text-center text-body"> Administração de Comandas - Net Link <%= store.name %></h1>
+    </div> 
+    <h4 class="text-center">Consulte as comandas pelo status</h4>
+    <hr />
+    <div class='mx-auto text-center my-5'>
+        <a class="nav-link" href="/os/nova"> <button class='btn btn-lg btn-warning' style='width:350px; color:black; font-weight:500; font-size:1.5em;'> Abrir Nova Comanda</button></a>
+    </div>
+    <hr />
+    <div class='row  comandasLoja'>
+        <div class='col-md-4 text-center my-2'>
+            <a href='/os/buscar/aberta/<%=store.name %>' class='text-decoration-none'><h4 class=' tagsUser'>Comandas Abertas</h4></a>
+        </div>
+        <div class='col-md-4 text-center my-2'>
+            <a href='/os/buscar/executando/<%=store.name %>' class='text-decoration-none'><h4 class='tagsUser'>Comandas Em Execução</h4></a>
+        </div>       
+        <div class='col-md-4 text-center my-2'>
+            <a href='/os/buscar/fechada/<%=store.name %>' class='text-decoration-none'><h4 class='tagsUser'>Comandas Fechadas</h4></a>
+        </div>
+    </div>
+
+<hr />
+    <div class='row BtnComandasLoja'>
+        <div class='col-md-4 text-center mx-auto'>
+            <a class='text-decoration-none' href='/admin'><h4 class="tagsUp ">Voltar</h4></a>
+        </div>
+    </div>
+    
+</div>
+<% include ../partials/footer %></div>

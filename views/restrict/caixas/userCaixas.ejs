@@ -1,0 +1,140 @@
+
+<% include ../../partials/restrict-header %>
+<div class=" adm container mt-4">
+    
+    
+        <hr />
+    <h3 class="text-center"> Consulta dos Caixas da usuária: <%= funcionaria.name %></h3>
+    <hr />
+    <div class="form-group mx-auto col-md-10"> 
+           
+    
+    <a href="/admin/caixas"><button class="btn btn-primary">Voltar</button></a>
+    <% Values.forEach(info => { %>
+        <div class="card my-3">
+            <div class="card-body">
+                    
+                    <table class=" col-md-10 mx-auto my-3 table table-sm table-bordered table-success table-hover ">
+                            <tbody>
+                                <tr class="row table-primary px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Data:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= moment(info.date).format("DD [de] MMMM [de] YYYY") %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Loja:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= store.name %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Funcionária:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.name %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Cópias Próprias:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.copyP %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Cópias Locadas:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.copyL %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Impressões Próprias:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.printP %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Impressões Locadas:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.printL %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Laser Color:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.laserC %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Jato Color:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.jetC %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Plotter:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.plotter %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Produtos:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.products %>
+                                    </td>  
+                                </tr> 
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Internet:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.internet %>
+                                    </td>  
+                                </tr>
+                                <tr class="row px-0 mx-0">
+                                    <th class=" col-md-3 " >
+                                        <h6 class="text-center my-auto">Observações:</h6>
+                                    </th>
+                                    <td class=" pl-5 my-auto  col-md-9">
+                                        <%= info.obs %>
+                                    </td>  
+                                </tr>
+                            </tbody>
+                        </table>
+            
+                <div class="row"> 
+                        <a href= "edit/<%= info._id %>"><button class="btn btn-sm mx-2 btn-warning"> Editar</button></a>
+                       <form action="/admin/caixas/excluir" method="POST">
+                           <input type="hidden" name="id" value="<%= info._id %>" />
+                           <button class="btn btn-sm btn-danger"> Excluir</button>
+                       </form>
+                </div>
+                
+            </div>
+            
+        </div>
+    <% }) %>
+</div>
+</div>
+<% include ../../partials/footer %>
