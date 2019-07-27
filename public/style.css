@@ -14,7 +14,7 @@ body{
 .welcome {
    
     margin-top: 8%;
-    background-color:#a55eea;
+    background-color:#6F1E51;
     color: #fff;
     animation-name: home;
     animation-duration: 2s;   
@@ -68,7 +68,7 @@ body{
     }
 }
 .BtnComandasLoja {
-    margin-top: 5%;
+    margin-top: 1%;
 }
 .tags {
     border: solid 1px #d3b2f7;
@@ -261,8 +261,6 @@ body{
     background: #ff4757;
     border-radius: 5px;
     text-align: center;
-
-    
 }
 
 /* LOGIN */
@@ -463,6 +461,20 @@ display: none;
     font-style: italic;
     margin-right: 25px;
 }
+/* Painel Aside*/
+.asideBox{
+    background-color: #70a1ff;
+    border-radius: 3px;
+    height: 2.8em;
+}
+.numberOrder {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Roboto', serif;
+    line-height: 2em;
+}
+
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) { 
     
@@ -574,7 +586,6 @@ display: none;
         padding-left: 15%;
     }
     
-    
  }
 
 /* Medium devices (tablets, 768px and up)*/
@@ -607,6 +618,6 @@ display: none;
         margin-bottom: 5%;
     }
     .BtnComandasLoja {
-        margin-top: 10%;
+        margin-top: 3%;
     }
  }

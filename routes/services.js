@@ -34,6 +34,7 @@ router.get('/buscar/executando', servicesController.searchOsE.bind(null, models)
 
 router.get('/list/:name', servicesController.resultsStore.bind(null, models))
 
+
 router.get('/buscar/fechada/:name', servicesController.storeOsF.bind(null, models))
 router.get('/buscar/aberta/:name', servicesController.storeOsA.bind(null, models))
 router.get('/buscar/executando/:name', servicesController.storeOsE.bind(null, models))

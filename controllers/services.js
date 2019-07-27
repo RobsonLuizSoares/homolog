@@ -76,13 +76,13 @@ const createOs = async ({ Order }, req, res ) => {
   await order
     .save()
     .then(() => {
-      if(req.body.store === '5d0b1c49fd60670017b2d3fc') {
+      if(req.body.store === '5d3b994a26b89933942253a6') {
         res.redirect('/os/list/Unespar')
-      }else if(req.body.store === '5d0b1c23fd60670017b2d3fb') {
+      }else if(req.body.store === '5d3b993f26b89933942253a5') {
         res.redirect('/os/list/Avenida')
-      }else if(req.body.store === '5d0b1c72fd60670017b2d3fd') {
+      }else if(req.body.store === '5d3b996e26b89933942253a8') {
         res.redirect('/os/list/São%20Cristóvão')
-      }else if(req.body.store === '5d0b1c87fd60670017b2d3fe') {
+      }else if(req.body.store === '5d3b995526b89933942253a7') {
         res.redirect('/os/list/Cruz%20Machado')
       }
   }).catch((err) => {
@@ -158,15 +158,44 @@ const storeOsE = async ({Order, Store, Employees}, req, res) =>{
   const store = await Store.find()
   res.render('os/lojas', { order, store } )
 } */
-
-const resultsStore =  async({Order, Store, Employees},req, res) => {
-  const order = await Order.find()
-  const employees = await Employees.find()
+/* const numberOrders = async({Order, Store, Employees}, req, res) => {
+  const numberOrderOpen = await Order.countDocuments({ status: { $all: 'aberta'}})
+  const numberOrderExec = await Order.countDocuments({ status: { $all: 'executando'}})
   const store = await Store.findOne({name:req.params.name}).then((store) =>{
     if(Store) {
-      Order.find({store:store._id}).then((order) => {
-         res.render('os/lojas', { order, store, employees, moment } )
+      Order.countDocuments({store:store._id}).then((order) => {
+         res.render('os/lojas', { order, store, employees, moment, numberOrderOpen, numberOrderExec } )
       }).catch(() =>{
+        console.log('erro ao Contar comandas por loja específica ', err)
+      })
+    }else {
+      console.log('essa comanda não existe')
+    }
+  }).catch((err) => {
+      if(err) { 
+      console.log('erro ao contar comandas por loja específica ', err)
+      }
+  })
+} */
+
+const resultsStore =  async({Order, Store, Employees},req, res) => {
+  const loja = await Store.findOne({name: req.params.name})
+ 
+ let numberOrderOpen = await Order.countDocuments({store:loja._id , status: { $all: 'aberta'}})
+ const numberOrderExec = await Order.countDocuments({ store:loja._id , status: { $all: 'executando'}})
+
+  const order = await Order.find()
+
+  const employees = await Employees.find()
+  
+  const store = await Store.findOne({name:req.params.name})
+    .then((store) =>{
+      if(Store) {
+        Order.find({store:store._id}).then((order) => {
+  
+         res.render('os/lojas', { order, store, employees, moment, numberOrderOpen, numberOrderExec } )
+
+      }).catch((err) =>{
         console.log('erro ao listar comandas por loja específica ', err)
       })
     }else {
@@ -176,8 +205,7 @@ const resultsStore =  async({Order, Store, Employees},req, res) => {
       if(err) { 
       console.log('erro ao listar comandas por loja específica ', err)
       }
-  })
- 
+  }) 
 }
 
 const excluirOs = async ({ Order }, req, res) => {
@@ -272,5 +300,6 @@ module.exports = {
     storeOsF,
     storeOsA,
     storeOsE,
-    resultsStore
+    resultsStore/* ,
+    numberOrders */
 }
