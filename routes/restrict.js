@@ -41,7 +41,7 @@ router.get('/caixas/excluir/:id', restrictController.excluirCaixa.bind(null, mod
 /////////////
 router.get('/count', restrictController.countCaixasA.bind(null, models))
 ///////////
-router.get('/gerenciamento', restrictController.management)
+router.get('/gerenciamento', restrictController.management.bind(null, models))
 // Empregados
 router.get('/funcionarias', employeesController.home.bind(null, models))
 router.get('/funcionarias/nova', employeesController.createEmployeeForm)

@@ -5,8 +5,20 @@ const home =  (req, res) => {
     res.render('restrict/home')
 }
 //Gerenciamento
-const management = (req,res) => {
-  res.render('restrict/gerenciamento')
+const management = async ({Order, Store, Employees},req,res) => {
+  const orderOpenAvenida = await Order.countDocuments({store: { $all:'5d3b993f26b89933942253a5'} , status: { $all: 'aberta'}})
+  const orderExecAvenida = await Order.countDocuments({ store:{ $all:'5d3b993f26b89933942253a5'} , status: { $all: 'executando'}})
+
+  const orderOpenUnespar = await Order.countDocuments({store: { $all:'5d3b994a26b89933942253a6'} , status: { $all: 'aberta'}})
+  const orderExecUnespar = await Order.countDocuments({ store:{ $all:'5d3b994a26b89933942253a6'} , status: { $all: 'executando'}})
+
+  const orderOpenSCris = await Order.countDocuments({store: { $all:'5d3b996e26b89933942253a8'} , status: { $all: 'aberta'}})
+  const orderExecSCris = await Order.countDocuments({ store:{ $all:'5d3b996e26b89933942253a8'} , status: { $all: 'executando'}})
+
+  const orderOpenCruz = await Order.countDocuments({store: { $all:'5d3b995526b89933942253a7'} , status: { $all: 'aberta'}})
+  const orderExecCruz = await Order.countDocuments({ store:{ $all:'5d3b995526b89933942253a7'} , status: { $all: 'executando'}})
+
+  res.render('restrict/gerenciamento', {orderOpenAvenida, orderExecAvenida, orderOpenUnespar, orderExecUnespar, orderOpenSCris, orderExecSCris, orderOpenCruz, orderExecCruz })
 }
 
 // USUÁRIOS

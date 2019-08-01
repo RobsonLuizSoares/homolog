@@ -21,7 +21,6 @@
                                         <% }) %>
                                 </select>  
                             </div>
-
                             <div class="form-group col-md-4"> 
                                 <strong><label>Selecione sua loja:</label></strong>
                                 <select class="form-control" name="store">
@@ -31,82 +30,86 @@
                                 </select>  
                             </div>
                         </div>
-        <h5 class="text-center alert alert-danger">XEROX</h5>
-        <div class="row"> 
-            
-            <div class="form-group col-md-6">
-                <label for="copias">Máquinas Próprias:</label>
-                <input type="text" class="form-control" id="copyP" name='copyP'  placeholder="digite o valor das cópias">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="impressoes">Máquinas Locadas:</label>
-                <input type="text" class="form-control" id="copyL" name='copyL' placeholder="digite o valor das Impressões" >
+                        <h5 class="text-center alert alert-danger">XEROX</h5>
+                        <div class="row"> 
+                            <div class="form-group col-md-6">
+                                <label for="copias">Máquinas Próprias:</label>
+                                <input type="text" class="form-control" id="copyP" name='copyP' onblur='somar()'  placeholder="digite o valor das cópias">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="impressoes">Máquinas Locadas:</label>
+                                <input type="text" class="form-control" id="copyL" name='copyL' onblur='somar()' placeholder="digite o valor das Impressões" >
+                            </div>
+                        </div>
+                        <h5 class="text-center alert alert-danger">IMPRESSÃO</h5>
+                        <div class="row"> 
+                            <div class="form-group col-md-6">
+                                <label for="copias">Máquinas Próprias:</label>
+                                <input type="text" class="form-control" id="printP" name='printP' onblur='somar()' placeholder="digite o valor das cópias">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="impressoes">Máquinas Locadas:</label>
+                                <input type="text" class="form-control" id="printL" name='printL' onblur='somar()' placeholder="digite o valor das Impressões" >
+                            </div>
+                        </div>
+                        <h5 class="text-center alert alert-danger">COLOR</h5>
+                        <div class="row"> 
+                            <div class="form-group col-md-6">
+                                <label for="copias">Laser Color:</label>
+                                <input type="text" class="form-control" id="laserC" name='laserC' onblur='somar()' placeholder="digite o valor das cópias">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="impressoes">Jato Color:</label>
+                                <input type="text" class="form-control" id="jetC" name='jetC' onblur='somar()' placeholder="digite o valor das Impressões" >
+                            </div>
+                        </div>
+                        <h5 class="text-center alert alert-danger">OUTROS</h5>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="copias">Plotter:</label>
+                                <input type="text" class="form-control" id="plotter" name='plotter' onblur='somar()' placeholder="digite o valor das cópias">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="impressoes">Produtos:</label>
+                                <input type="text" class="form-control" id="products" name='products' onblur='somar()' placeholder="digite o valor das Impressões" >
+                            </div>
+                            <div class="form-group col-md-4">
+                                    <label for="impressoes">Internet:</label>
+                                    <input type="text" class="form-control" id="internet" name='internet' onblur='somar()' placeholder="digite o valor das Impressões" >
+                            </div>
+                        </div>
+                        <h5 class="text-center alert alert-danger">OBSERVAÇÕES</h5>
+                        <div class="row">
+                            <div class="form-group mx-auto col-md-12">
+                                <label for="impressoes">Observações:</label>
+                                    <textarea class="form-control" id="obs" name='obs' rows="3" placeholder="Observações">
+                                    </textarea>
+                            </div>
+                        </div>
+                        <div class="form-row my-3 mr-5" style="float:right">
+                            <button type="submit" class="btn btn-primary">Fechar Caixa</button>
+                        </div>
+                    </form>
+        <div id='boxTotal' class='card result'>
+            <div  class='card-body'>
+                <h4 class='titleValue card-title'> Total:</h4>
+                <h5 id='result' class='totalValue card-text'></h5>
             </div>
         </div>
-        <h5 class="text-center alert alert-danger">IMPRESSÃO</h5>
-        <div class="row"> 
-            
-            <div class="form-group col-md-6">
-                <label for="copias">Máquinas Próprias:</label>
-                <input type="text" class="form-control" id="printP" name='printP' placeholder="digite o valor das cópias">
             </div>
-            <div class="form-group col-md-6">
-                <label for="impressoes">Máquinas Locadas:</label>
-                <input type="text" class="form-control" id="printL" name='printL' placeholder="digite o valor das Impressões" >
-            </div>
-        </div>
-        <h5 class="text-center alert alert-danger">COLOR</h5>
-        <div class="row"> 
-            <div class="form-group col-md-6">
-                <label for="copias">Laser Color:</label>
-                <input type="text" class="form-control" id="laserC" name='laserC' placeholder="digite o valor das cópias">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="impressoes">Jato Color:</label>
-                <input type="text" class="form-control" id="jetC" name='jetC' placeholder="digite o valor das Impressões" >
-            </div>
-        </div>
-        <h5 class="text-center alert alert-danger">OUTROS</h5>
-        <div class="row">
-            <div class="form-group col-md-4">
-                <label for="copias">Plotter:</label>
-                <input type="text" class="form-control" id="plotter" name='plotter' placeholder="digite o valor das cópias">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="impressoes">Produtos:</label>
-                <input type="text" class="form-control" id="products" name='products' placeholder="digite o valor das Impressões" >
-            </div>
-            <div class="form-group col-md-4">
-                    <label for="impressoes">Internet:</label>
-                    <input type="text" class="form-control" id="internet" name='internet'  placeholder="digite o valor das Impressões" >
-            </div>
-        </div>
-        <h5 class="text-center alert alert-danger">OBSERVAÇÕES</h5>
-        <div class="row">
-            <div class="form-group mx-auto col-md-12">
-                <label for="impressoes">Observações:</label>
-                    <textarea class="form-control" id="obs" name='obs' rows="3" placeholder="Observações">
-                    </textarea>
-            </div>
-        </div>
-        <div class="form-row my-3 mr-5" style="float:right">
-            <button type="submit" class="btn btn-primary">Fechar Caixa</button>
-        </div>
-        
-    </form>
-    
-    </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-          $("#copyP, #copyL, #copyP, #copyL, #printP, #printL, #laserC, #jetC, #plotter, #products, #internet").mask("099.00", {reverse: true});
-        $(document).ready(function(){
-            
-                $("#copyP, #copyL, #copyP, #copyL, #printP, #printL, #laserC, #jetC, #plotter, #products, #internet").maskMoney({ decimal: '.', thousands: '', precision: 2 });
-        })
-        </script>
+    $("#copyP, #copyL, #copyP, #copyL, #printP, #printL, #laserC, #jetC, #plotter, #products, #internet").mask("099.00", {reverse: true});
+    
+    $(document).ready(function(){
+        $("#copyP, #copyL, #printP, #printL, #laserC, #jetC, #plotter, #products, #internet").maskMoney({ decimal: '.', thousands: '', precision: 2 });
+    })
+</script>
 
+<script src='/somar.js'>
+</script>
 <% include ../partials/footer %>
 
