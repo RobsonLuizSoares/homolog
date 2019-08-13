@@ -1,0 +1,23 @@
+<% include ../../partials/restrict-header %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-5">
+        <h1 class="mt-4 text-white"> EDITAR FUNCIONÁRIA </h1>
+    </div>
+        <hr />
+    <div class="container my-4 ">
+        <h3>EDIÇÃO DE FUNCIONÁRIA </h3>
+    </div>
+    <div class="card">
+        <div class="card-body pb-5">
+            <form method="POST" >
+                <div class="form-group">
+                    <label for="name">Funcionária</label>
+                    <input type="text" class="form-control" id="name" name='name' placeholder="Digite o nome da funcionária" value='<%= employees.name %>'>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Editar</button>
+                <a href="/restrict/funcionarias"> <button type="button" class="btn btn-secondary">Voltar</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ../../partials/footer %></div>

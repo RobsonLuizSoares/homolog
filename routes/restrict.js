@@ -46,6 +46,10 @@ router.get('/gerenciamento', restrictController.management.bind(null, models))
 router.get('/funcionarias', employeesController.home.bind(null, models))
 router.get('/funcionarias/nova', employeesController.createEmployeeForm)
 router.post('/funcionarias/nova', employeesController.createEmployee.bind(null, models))
+router.get('/funcionarias/excluir/:id', employeesController.excluir.bind(null, models))
+
+router.get('/funcionarias/editar/:id', employeesController.editForm.bind(null, models))
+router.post('/funcionarias/editar/:id', employeesController.processEdit.bind(null, models))
 
 // Usuários do sistema
 router.get('/novousuario', restrictController.newUser)

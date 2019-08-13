@@ -8,16 +8,16 @@
       <thead>
         <tr class="table-secondary text-center">
           <th scope="col">Funcionárias</th>
-          <th scope="col">Caixas Fechados (?)</th>
-          <th scope="col">Comandas Fechadas (?)</th>
+          <th scope="col">Excluir</th>
+          <th scope="col">Editar</th>
         </tr>
       </thead>
       <tbody>
       <% employees.forEach(employee => { %>
         <tr class='table-info text-center'>
           <th scope="row"><%= employee.name %></th>
-          <td>caixas fechados (?)</td>
-          <td>comandas fechadas (?)</td>
+          <td><a href='/restrict/funcionarias/excluir/<%= employee._id %>'><btn class='btn btn-danger'>Excluir</btn></a></td>
+          <td><a href='/restrict/funcionarias/editar/<%= employee._id %>'><btn class='btn btn-info'>Editar</btn></a></td>
         </tr>
       </tbody>
       <% }) %>
