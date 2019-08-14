@@ -9,13 +9,17 @@
         <tr class="table-secondary text-center">
           <th scope="col">Nome</th>
           <th scope="col">Nome de Usuária</th>
+          <th scope="col">Excluir</th>
+          <th scope="col">Editar</th>
         </tr>
       </thead>
       <tbody>
       <% users.forEach(user => { %>
-        <tr class='table-info text-center'><td><%= user.user %></td>
-          <td scope="row"><%= user.username %></td>
-          
+        <tr class='table-info text-center'>
+        <th><%= user.user %></th>
+        <th scope="row"><%= user.username %></th>
+        <td><a href='/restrict/users/excluir/<%= user._id %>'><btn class='btn btn-danger'>Excluir</btn></a></td>
+        <td><a href='/restrict/users/editar/<%= user._id %>'><btn class='btn btn-info'>Editar</btn></a></td>  
         </tr>
       </tbody>
       <% }) %>

@@ -29,15 +29,39 @@ const newUser = (req, res) => {
 const createUser = async ({ User }, req, res ) => {
     const user = new User (req.body)
     await user.save().then(() => {
-      res.redirect('/restrict')
+      res.redirect('/restrict/users')
     }).catch((err) => {
         if(err){console.log('erro no create: ',err)}
     })     
   }
 
-const users = async ({User}, req, res) => {
+const users = async ({User }, req, res) => {
   const users = await User.find()
   res.render('restrict/users/users', { users})
+}
+
+const excluirUser = async ({User}, req, res) => {
+  await User.deleteOne({_id: req.params.id}).then(() =>{
+      res.redirect('/restrict/users')
+    }).catch((err) => {
+    if(err) {'Erro ao excluir usuária', err}
+  })
+}
+
+const editFormUser = async ({ User }, req, res) =>{
+  const user = await User.findOne({ _id: req.params.id })
+    res.render('restrict/users/editUser', {user})
+}
+
+const processEditUser = async ({ User }, req, res ) => {
+  const user = await User.findOneAndUpdate({_id: req.params.id}, {
+    user: req.body.user,
+  
+  }) 
+    user.user = req.body.name
+    
+  
+   res.redirect('/restrict/users')
 }
   // FUNCIONÁRIAS
   const createEmployees = async ({ Employees }, req, res ) => {
@@ -48,6 +72,7 @@ const users = async ({User}, req, res) => {
         if(err){console.log('erro no create: ',err)}
     })     
   }
+
 // CAIXAS
   const caixas = async ({ Store, Values },req, res) => {
     const quantCaixas = await Values.count()
@@ -113,5 +138,17 @@ const countCaixasA = async({ Order, Values }, req, res) => {
 
 
 module.exports = {
-    home, newUser, createUser, users, createEmployees, caixas, storeCaixas, management, excluirCaixa, countCaixasA
+    home, 
+    newUser, 
+    createUser, 
+    users, 
+    createEmployees, 
+    caixas, 
+    storeCaixas, 
+    management, 
+    excluirCaixa, 
+    countCaixasA,
+    excluirUser,
+    editFormUser,
+    processEditUser
 }

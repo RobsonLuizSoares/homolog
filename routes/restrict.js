@@ -47,7 +47,6 @@ router.get('/funcionarias', employeesController.home.bind(null, models))
 router.get('/funcionarias/nova', employeesController.createEmployeeForm)
 router.post('/funcionarias/nova', employeesController.createEmployee.bind(null, models))
 router.get('/funcionarias/excluir/:id', employeesController.excluir.bind(null, models))
-
 router.get('/funcionarias/editar/:id', employeesController.editForm.bind(null, models))
 router.post('/funcionarias/editar/:id', employeesController.processEdit.bind(null, models))
 
@@ -55,6 +54,10 @@ router.post('/funcionarias/editar/:id', employeesController.processEdit.bind(nul
 router.get('/novousuario', restrictController.newUser)
 router.post('/novousuario', restrictController.createUser.bind(null, models))
 router.get('/users', restrictController.users.bind(null, models))
+router.get('/users/excluir/:id', restrictController.excluirUser.bind(null, models))
+router.get('/users/editar/:id', restrictController.editFormUser.bind(null, models))
+router.post('/users/editar/:id', restrictController.processEditUser.bind(null, models))
+
 
 //Rota Acessar Lojas
 router.get('/stores', storeController.home.bind(null, models))

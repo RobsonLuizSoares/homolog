@@ -35,6 +35,7 @@ bcrypt.genSalt((err, salt) => {
 })
 
 UserSchema.methods.checkPassword = function(password){
+
     return new Promise((resolve, reject) => {
         bcrypt.compare(password, this.password, (err, isMatch) => {
             if(err) {
@@ -45,6 +46,8 @@ UserSchema.methods.checkPassword = function(password){
         })
     })    
 }
+
+
 
 const User = mongoose.model("User", UserSchema)
 

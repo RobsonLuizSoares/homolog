@@ -1,0 +1,33 @@
+<% include ../../partials/restrict-header %>
+
+<div class='container text-center namePage'>
+    <h1> Editar Usuária </h1>
+</div>
+    <div class="container user py-4" >
+    <div class="card">
+        <div class="card-body py-5"  >
+            <div class="card-body pb-5 mx-auto col-md-8" style= "border-radius: 8px; background-color: #f0f0f0"> 
+                <form method="POST">
+                    <div class="form-group mx-auto col-md-10 mb-5">                            
+                        <small><label class="" for="name">Nome: </label></small>
+                        <input type="text" class="form-control" id="user" name='user' value='<%= user.user %>' placeholder="Digite o Nome da Pessoa" >
+                     <% /* %>   ACRESCENTAR EDIÇÃO DE SENHA E DE PERFIL
+                      <small><label class="mt-2" for="name">Usuário: </label></small>
+                        <input type="text" class="form-control" id="username" name='username' value='<%= user.username %>' placeholder="Digite o nome para Acesso" ></input>
+                        </input><small><label class="mt-2 " for="name">Senha: </label></small>
+                        <input type="password" class="form-control" id="password" name='password' value='<%= user.password %>' placeholder="Digite uma senha para o usuário">
+                        <small><label class="mt-2 " for="name">Perfil: </label></small>
+                        <select  class="form-control" id="roles" name='roles'>
+                            <option value="">Escolha o Perfil de usuário</option>
+                            <option value="admin"> Funcionária</option>
+                            <option value="restrict"> Administração</option>
+                        </select>  <% */ %> 
+                    </div>
+                    <button type="submit" class="btn ml-5 mt-3 btn-primary">Editar usuário</button>
+                    <a href='javascript:history.back()'> <button type="button" class="btn ml-3 mt-3 btn-secondary">Voltar</button></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../../partials/footer %> 
