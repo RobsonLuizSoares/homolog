@@ -1,14 +1,27 @@
 <% include ../partials/header %>
 
 <script>
-    $(document).ready(function() {
-    $(window).keydown(function(event){
-        if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-        }
-    })
-    })
+   /* $(document).ready(function() {
+        let env = documento.getElementById('env')
+            $(env).keydown(function(event){
+                if(event.keyCode == 13 ) {
+                    alert('Olá')
+                 event.preventDefault();
+                return false;
+                }
+            })
+    }) */
+
+    /* 
+      $(document).ready(function() {
+        $(window).keydown(function(event){
+          if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+          }
+        }) 
+      }) */
+    
 </script>
 
 <div class='container text-center namePage'>
@@ -97,8 +110,8 @@
                                 <hr/>
                                 <div class="row ">
                                     <div class="col-md-12 text-center"> 
-                                        <label class='mb-2 ' for="comentário">Descrição do Serviço:</label>
-                                        <textarea class='form-control comments fieldNew' name='comments' rows="2" cols=""> </textarea>
+                                        <label class='mb-2' for="comentário">Descrição do Serviço:</label>
+                                        <textarea class='form-control comments fieldNew' name='comments' id='comments' rows="3" > </textarea>
                                     </div>
                                     
                                 </div>
@@ -176,7 +189,7 @@
                                 <h6 class='userCreateComanda'><small> Comanda aberta por:</small>&nbsp; <%= locals.user.username %> </h6>
                                 <% } %> 
                                 <div class='btnNova'>
-                                <button class='btn btn-primary mr-2 mt-3' style='width: 7rem;'>Salvar</button>
+                                <button id='env' class='btn btn-primary mr-2 mt-3' style='width: 7rem;'>Salvar</button>
                                 <a href='/admin'> <button type='button' class='btn btn-secondary  mt-3' style='width: 7rem;'>Cancelar</button></a>
                                 </div>
                             </div> 

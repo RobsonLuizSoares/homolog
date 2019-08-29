@@ -68,14 +68,14 @@
                     <h6 class="mx-auto">Descrição do Serviço:</h6>        
                 </div>           
                 <div class="row">
-                    <div class= ' fieldComments'>
-                        <span class="font-weight-normal">&nbsp; <%= os.comments %></span>
+                    <div class= 'fieldComments'>
+                       <pre class="font-weight-normal"><%= os.comments %></pre>
                     </div>
                 </div>
                 <hr />
                 <div class="row ">
                     <div class="col-md-3 fieldDate">
-                        <span class="font-weight-normal " >Registrada em: <%= moment(os.register).format("DD [/] MM [/] YYYY") %>&nbsp; </span> 
+                        <span class="font-weight-normal" >Registrada em: <%= moment(os.register).format("DD [/] MM [/] YYYY") %>&nbsp; </span> 
                     </div>
                     <% if(os.delivery) { %> 
                     <div class="col-md-3 fieldDate">

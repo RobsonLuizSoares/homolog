@@ -2,8 +2,8 @@
 const moment = require('moment')
 moment.locale('pt-br')
 
-const labels = [ 
-  { id: 'aberta', name: 'aberta' }, 
+const labels = [
+  { id: 'aberta', name: 'aberta' },
   { id: 'executando', name: 'executando' },
   { id: 'fechada', name: 'fechada' }
 ]
@@ -41,8 +41,8 @@ const solds = [
 
 const list = async ({ Order, Store }, req, res) => {
   const store = await Store.find({})
-  const order = await Order.find({}).sort({number: -1})
-      res.render('os/comandas', {order, labels, services, copies, sheets, sizes, colors, solds, store, moment })    
+  const order = await Order.find({}).sort({ number: -1 })
+  res.render('os/comandas', { order, labels, services, copies, sheets, sizes, colors, solds, store, moment })
 }
 /* const list = async ({ Order, Store, Employees }, req, res) => {
   const employees = await Employees.find()
@@ -64,84 +64,84 @@ const list = async ({ Order, Store }, req, res) => {
       
 } */
 
-const newFormOs = async ({Store, Employees}, req, res) =>{
+const newFormOs = async ({ Store, Employees }, req, res) => {
   const employees = await Employees.find()
   const stores = await Store.find()
-  res.render('os/nova', {stores, employees})
+  res.render('os/nova', { stores, employees })
 }
 
 
-const createOs = async ({ Order }, req, res ) => {
-  const order = new Order (req.body)
+const createOs = async ({ Order }, req, res) => {
+  const order = new Order(req.body)
   await order
     .save()
     .then(() => {
-      if(req.body.store === '5d3b994a26b89933942253a6') {
+      if (req.body.store === '5d3b994a26b89933942253a6') {
         res.redirect('/os/list/Unespar')
-      }else if(req.body.store === '5d3b993f26b89933942253a5') {
+      } else if (req.body.store === '5d3b993f26b89933942253a5') {
         res.redirect('/os/list/Avenida')
-      }else if(req.body.store === '5d3b996e26b89933942253a8') {
+      } else if (req.body.store === '5d3b996e26b89933942253a8') {
         res.redirect('/os/list/São%20Cristóvão')
-      }else if(req.body.store === '5d3b995526b89933942253a7') {
+      } else if (req.body.store === '5d3b995526b89933942253a7') {
         res.redirect('/os/list/Cruz%20Machado')
       }
-  }).catch((err) => {
-      if(err){console.log('erro no create: ',err)}
-  })     
+    }).catch((err) => {
+      if (err) { console.log('erro no create: ', err) }
+    })
 }
 //========================BUSCA DE COMANDAS POR LOJAS ========================================================
-const storeOsF = async ({Order, Store, Employees}, req, res) =>{
-  const employees= await Employees.find()
-  const order = await Store.findOne({name: req.params.name}).then((store) => {
-    if(Store) {
-      Order.find({store: store._id, status: { $all: 'fechada'} } ).sort({date: -1}).then((Order) => {
+const storeOsF = async ({ Order, Store, Employees }, req, res) => {
+  const employees = await Employees.find()
+  const order = await Store.findOne({ name: req.params.name }).then((store) => {
+    if (Store) {
+      Order.find({ store: store._id, status: { $all: 'fechada' } }).sort({ register: -1 }).then((Order) => {
         res.render('os/resultsOS', { Order, store, employees, moment })
       }).catch(() => {
         console.log('Erro ao listar as comandas por loja')
       })
-    }else {
+    } else {
       console.log('Não existe comanda nessa loja')
     }
   }).catch((err) => {
-    if(err) {
+    if (err) {
       console.log('Deu erro ao listar comandas por loja ', err)
     }
   })
 }
 
-const storeOsA = async ({Order, Store, Employees}, req, res) =>{
-  const employees= await Employees.find()
-  const order = await Store.findOne({name: req.params.name}).then((store) => {
-    if(Store) {
-      Order.find({store: store._id, status: { $all: 'aberta'} } ).sort({date: -1}).then((Order) => {
+const storeOsA = async ({ Order, Store, Employees }, req, res) => {
+  const employees = await Employees.find()
+  const order = await Store.findOne({ name: req.params.name }).then((store) => {
+    if (Store) {
+      Order.find({ store: store._id, status: { $all: 'aberta' } }).sort({ register: 1 }).then((Order) => {
         res.render('os/resultsOS', { Order, store, employees, moment })
       }).catch(() => {
         console.log('Erro ao listar as comandas por loja')
       })
-    }else {
+    } else {
       console.log('Não existe comanda nessa loja')
     }
   }).catch((err) => {
-    if(err) {
+    if (err) {
       console.log('Deu erro ao listar comandas por loja ', err)
     }
   })
 }
 
-const storeOsE = async ({Order, Store, Employees}, req, res) =>{
-  const employees= await Employees.find()
-  const order = await Store.findOne({name: req.params.name}).then((store) => {
-    if(Store) {
-      Order.find({store: store._id, status: { $all: 'executando'} } ).sort({date: -1}).then((Order) => {
+const storeOsE = async ({ Order, Store, Employees }, req, res) => {
+  const employees = await Employees.find()
+  const order = await Store.findOne({ name: req.params.name }).then((store) => {
+    if (Store) {
+      Order.find({ store: store._id, status: { $all: 'executando' } }).sort({ register: -1 }).then((Order) => {
         res.render('os/resultsOS', { Order, store, employees, moment })
       }).catch(() => {
         console.log('Erro ao listar as comandas por loja')
       })
-    }else {
+    } else {
       console.log('Não existe comanda nessa loja')
     }
   }).catch((err) => {
-    if(err) {
+    if (err) {
       console.log('Deu erro ao listar comandas por loja ', err)
     }
   })
@@ -178,43 +178,43 @@ const storeOsE = async ({Order, Store, Employees}, req, res) =>{
   })
 } */
 
-const resultsStore =  async({Order, Store, Employees},req, res) => {
-  const loja = await Store.findOne({name: req.params.name})
- 
- let numberOrderOpen = await Order.countDocuments({store:loja._id , status: { $all: 'aberta'}})
- const numberOrderExec = await Order.countDocuments({ store:loja._id , status: { $all: 'executando'}})
+const resultsStore = async ({ Order, Store, Employees }, req, res) => {
+  const loja = await Store.findOne({ name: req.params.name })
+
+  let numberOrderOpen = await Order.countDocuments({ store: loja._id, status: { $all: 'aberta' } })
+  const numberOrderExec = await Order.countDocuments({ store: loja._id, status: { $all: 'executando' } })
 
   const order = await Order.find()
 
   const employees = await Employees.find()
-  
-  const store = await Store.findOne({name:req.params.name})
-    .then((store) =>{
-      if(Store) {
-        Order.find({store:store._id}).then((order) => {
-  
-         res.render('os/lojas', { order, store, employees, moment, numberOrderOpen, numberOrderExec } )
 
-      }).catch((err) =>{
-        console.log('erro ao listar comandas por loja específica ', err)
-      })
-    }else {
-      console.log('essa comanda não existe')
-    }
-  }).catch((err) => {
-      if(err) { 
-      console.log('erro ao listar comandas por loja específica ', err)
+  const store = await Store.findOne({ name: req.params.name })
+    .then((store) => {
+      if (Store) {
+        Order.find({ store: store._id }).then((order) => {
+
+          res.render('os/lojas', { order, store, employees, moment, numberOrderOpen, numberOrderExec })
+
+        }).catch((err) => {
+          console.log('erro ao listar comandas por loja específica ', err)
+        })
+      } else {
+        console.log('essa comanda não existe')
       }
-  }) 
+    }).catch((err) => {
+      if (err) {
+        console.log('erro ao listar comandas por loja específica ', err)
+      }
+    })
 }
 
 const excluirOs = async ({ Order }, req, res) => {
   await Order.deleteOne({ _id: req.params.id })
-    res.redirect('/os/list')
+  res.redirect('/os/list')
 }
 
 const editOs = async ({ Order }, req, res) => {
-  const order = await Order.findOneAndUpdate( { _id: req.params.id }, {
+  const order = await Order.findOneAndUpdate({ _id: req.params.id }, {
     client: req.body.client,
     phone: req.body.phone,
     socialMedia: req.body.socialMedia,
@@ -229,45 +229,53 @@ const editOs = async ({ Order }, req, res) => {
     valueJobInit: req.body.valueJobInit,
     isSold: req.body.isSold,
     //number: req.body.number,
+    store: req.body.store,
     status: req.body.status,
-    comments: req.body.comments
+    comments: req.body.comments.trim()
   })
-    order.client= req.body.client
-    order.phone= req.body.phone
-    order.socialMedia= req.body.socialMedia
-    order.copy= req.body.copy
-    order.copyQ= req.body.copyQ
-    order.sheets= req.body.sheets
-    order.size= req.body.size
-    order.otherServices= req.body.otherServices
-    order.color= req.body.color
-    order.delivery= req.body.delivery
-    order.valueJobTotal= req.body.valueJobTotal
-    order.valueJobInit= req.body.valueJobInit
-    order.isSold= req.body.isSold
-    //order.number= req.body.number
-    order.status= req.body.status
-    order.comments= req.body.comments
-    
-    
-    
-      res.redirect('/os/list')
-    
+  order.client = req.body.client
+  order.phone = req.body.phone
+  order.socialMedia = req.body.socialMedia
+  order.copy = req.body.copy
+  order.copyQ = req.body.copyQ
+  order.sheets = req.body.sheets
+  order.size = req.body.size
+  order.otherServices = req.body.otherServices
+  order.color = req.body.color
+  order.delivery = req.body.delivery
+  order.valueJobTotal = req.body.valueJobTotal
+  order.valueJobInit = req.body.valueJobInit
+  order.isSold = req.body.isSold
+  //order.number= req.body.number
+  order.status = req.body.status
+  order.store = req.body.store
+  order.comments = req.body.comments.trim()
+
+
+  if (order.store == '5d3b994a26b89933942253a6') {
+    res.redirect('/os/list/Unespar')
+  } else if (order.store == '5d3b993f26b89933942253a5') {
+    res.redirect('/os/list/Avenida')
+  } else if (order.store == '5d3b996e26b89933942253a8') {
+    res.redirect('/os/list/São%20Cristóvão')
+  } else if (order.store == '5d3b995526b89933942253a7') {
+    res.redirect('/os/list/Cruz%20Machado')
+  }
 }
 
 const editFormOs = async ({ Order }, req, res) => {
   const order = await Order.findOne({ _id: req.params.id })
-     res.render('os/editarOs', { order, labels, services, copies, sheets, sizes, colors, solds, moment } )  
+  res.render('os/editarOs', { order, labels, services, copies, sheets, sizes, colors, solds, moment })
 }
 
-const info = async ({ Order }, req, res ) => {
+const info = async ({ Order }, req, res) => {
   const order = await Order.findOne({ _id: req.params.id })
   res.render('os/info', { order })
 }
 
-const addComentario = async ({Order}, req, res) => {
-  await Order.updateOne({ _id: req.params.id }, {$push: {comments: req.body.comentario}})
-  res.redirect('/os/info/'+req.params.id)
+const addComentario = async ({ Order }, req, res) => {
+  await Order.updateOne({ _id: req.params.id }, { $push: { comments: req.body.comentario } })
+  res.redirect('/os/info/' + req.params.id)
 }
 //********************************************************** */
 /* const searchOsF = async ({ Order }, req, res) => {
@@ -286,20 +294,20 @@ const addComentario = async ({Order}, req, res) => {
 }  */
 
 module.exports = {
-    list,
-    createOs,
-    newFormOs,
-    excluirOs,
-    editOs,
-    editFormOs,
-    info,
-    addComentario,
-    /* searchOsF,
-    searchOsA,
-    searchOsE, */
-    storeOsF,
-    storeOsA,
-    storeOsE,
-    resultsStore/* ,
+  list,
+  createOs,
+  newFormOs,
+  excluirOs,
+  editOs,
+  editFormOs,
+  info,
+  addComentario,
+  /* searchOsF,
+  searchOsA,
+  searchOsE, */
+  storeOsF,
+  storeOsA,
+  storeOsE,
+  resultsStore/* ,
     numberOrders */
 }

@@ -9,8 +9,27 @@
             <div class="card mx-auto" style="max-width: 55rem;">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-md-8 my-auto text-center ">
+                        <div class="col-md-4 my-auto text-center ">
                             <span class="font-weight-bold" value="<%= order.client %>" style="font-size: 1.4em; " >Comanda n.: <%= order.number %></span> 
+                        </div>
+                        <div class="col-md-4 my-auto text-center">
+                            <input class="font-weight-normal invisible" value="<%= order.store %>" style="font-size: 1em; " name='store' 
+                            
+                            <%  if(order.store == '5d3b995526b89933942253a7') { %>
+                                
+                                    Cruz Machado
+                                <% } %> 
+                                <%  if(order.store == '5d3b994a26b89933942253a6') { %>   
+                                    Unespar
+                                <% } %> 
+                                <%  if(order.store == '5d3b996e26b89933942253a8') { %>   
+                                     São Cristóvão
+                                <% } %> 
+                                <%  if(order.store == '5d3b993f26b89933942253a5') { %>   
+                                    Avenida
+                                <% } %> 
+
+                             />
                         </div>
                         <div class="form-group my-auto col-md-4">
                             <select  class="form-control" id='status' name='status'>
@@ -87,8 +106,8 @@
                         <h6 class="mx-auto">Descrição do Serviço:</h6>        
                     </div>           
                     <div class="row my-2 form-group">
-                        <textarea class="form-control" value='<%= order.comments %>' name="comments" rows="2" >
-                                <%= order.comments %>
+                        <textarea class="form-control" value='<%= order.comments %>' id='comments' name="comments" rows="4" >
+                            <%= order.comments %>
                         </textarea>
                     </div>
                     <div class="row ">
@@ -139,6 +158,8 @@
           $("#valueJobTotal, #valueJobInit").maskMoney({ decimal: '.', thousands: '', precision: 2 });
   })
   </script>
+
+  
   <script>
   if (window.jQuery == undefined)
 alert("Sem jQuery!");
