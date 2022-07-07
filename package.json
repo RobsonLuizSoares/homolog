@@ -20,7 +20,7 @@
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "jquery-mask-plugin": "^1.14.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongodb": "^3.2.4",
     "mongoose": "^5.5.7",
     "mongoose-sequence": "^5.0.1"
